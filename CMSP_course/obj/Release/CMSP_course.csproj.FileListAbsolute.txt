@@ -1,0 +1,14 @@
+C:\Users\Администратор\Documents\Visual Studio 2008\Projects\CMSP_course\CMSP_course\bin\Release\CMSP_course.exe
+C:\Users\Администратор\Documents\Visual Studio 2008\Projects\CMSP_course\CMSP_course\bin\Release\CMSP_course.pdb
+C:\Users\Администратор\Documents\Visual Studio 2008\Projects\CMSP_course\CMSP_course\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Администратор\Documents\Visual Studio 2008\Projects\CMSP_course\CMSP_course\obj\Release\CMSP_course.Graph.resources
+C:\Users\Администратор\Documents\Visual Studio 2008\Projects\CMSP_course\CMSP_course\obj\Release\CMSP_course.Properties.Resources.resources
+C:\Users\Администратор\Documents\Visual Studio 2008\Projects\CMSP_course\CMSP_course\obj\Release\CMSP_course.csproj.GenerateResource.Cache
+C:\Users\Администратор\Documents\Visual Studio 2008\Projects\CMSP_course\CMSP_course\obj\Release\CMSP_course.exe
+C:\Users\Администратор\Documents\Visual Studio 2008\Projects\CMSP_course\CMSP_course\obj\Release\CMSP_course.pdb
+C:\Users\Администратор\Documents\Visual Studio 2008\Projects\CMSP_course\CMSP_course\obj\Release\CMSP_course.mainForm.resources
+C:\Users\Администратор\Documents\Visual Studio 2008\Projects\CMSP_course\CMSP_course\bin\Release\CMSP_course.exe.manifest
+C:\Users\Администратор\Documents\Visual Studio 2008\Projects\CMSP_course\CMSP_course\bin\Release\CMSP_course.application
+C:\Users\Администратор\Documents\Visual Studio 2008\Projects\CMSP_course\CMSP_course\obj\Release\CMSP_course.exe.manifest
+C:\Users\Администратор\Documents\Visual Studio 2008\Projects\CMSP_course\CMSP_course\obj\Release\CMSP_course.application
+C:\Users\Администратор\Documents\Visual Studio 2008\Projects\CMSP_course\CMSP_course\obj\Release\CMSP_course.ResultForm.resources
