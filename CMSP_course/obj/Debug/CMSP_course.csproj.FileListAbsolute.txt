@@ -2,7 +2,6 @@ C:\Users\Администратор\Documents\Visual Studio 2008\Projects\CMSP_c
 C:\Users\Администратор\Documents\Visual Studio 2008\Projects\CMSP_course\CMSP_course\bin\Debug\CMSP_course.pdb
 C:\Users\Администратор\Documents\Visual Studio 2008\Projects\CMSP_course\CMSP_course\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Администратор\Documents\Visual Studio 2008\Projects\CMSP_course\CMSP_course\obj\Debug\CMSP_course.mainForm.resources
-C:\Users\Администратор\Documents\Visual Studio 2008\Projects\CMSP_course\CMSP_course\obj\Debug\CMSP_course.Graph.resources
 C:\Users\Администратор\Documents\Visual Studio 2008\Projects\CMSP_course\CMSP_course\obj\Debug\CMSP_course.Properties.Resources.resources
 C:\Users\Администратор\Documents\Visual Studio 2008\Projects\CMSP_course\CMSP_course\obj\Debug\CMSP_course.csproj.GenerateResource.Cache
 C:\Users\Администратор\Documents\Visual Studio 2008\Projects\CMSP_course\CMSP_course\obj\Debug\CMSP_course.exe

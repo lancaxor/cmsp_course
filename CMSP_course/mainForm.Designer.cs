@@ -669,6 +669,8 @@
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.alnaliticBtn);
             this.Controls.Add(this.exitBtn);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "mainForm";
             this.Text = "Hyperbolic Secant Distribution";
             ((System.ComponentModel.ISupportInitialize)(this.MuUpDown)).EndInit();
