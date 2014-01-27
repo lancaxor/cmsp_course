@@ -30,12 +30,15 @@ namespace CMSP_course
         double[] resRands;
         int methodChar = 0;
         List<PointF> points;
-        
+        private double dXmin = 0.0, dXmax = 1.0, dStep = 0.1;
+        private long xnum = 100;
+        private double[] dXvals, dYvals;
 
         public mainForm()
         {
             InitializeComponent();
-
+            dXvals = new double[10];
+            dYvals = fillYArray(dXvals);
             sig = 1.0;
             mu = 0.0;
             this.SigmaUpDown.Value = new decimal(1.0);
@@ -80,7 +83,11 @@ namespace CMSP_course
                         case 1:             //Neuman
                             sendNeumanDataToResDlg();
                             break;
+                        case 2:
+                            sendAnaliticDataToResDlg();
+                            break;
                         default:
+                            MessageBox.Show("Some incorrect...");
                             break;
                     }
             }
@@ -138,9 +145,7 @@ namespace CMSP_course
 
         private void button2_Click(object sender, EventArgs e)      //Показать аналитический график
         {
-            SetValues();
-            Graph graph = new Graph();
-            graph.Show();
+            System.Diagnostics.Process.Start("Help.txt");
         }
         
         private void button5_Click(object sender, EventArgs e)          // Начать/завершить рассчет
@@ -197,6 +202,36 @@ namespace CMSP_course
                        this.countNeumanMethod();
                     });
                     break;
+                case 2:
+                    this.methName = "Аналитический метод";
+                    dXmin = Double.Parse(this.xminUpDown.Value.ToString());
+                    dXmax = Double.Parse(this.xmaxUpDown.Value.ToString());
+                    if (dXmax <= dXmin)
+                    {
+                        MessageBox.Show("Xmax must be greater then Xmin!");
+                        return;
+                    }
+                    dStep = Double.Parse(this.stepUpDown.Value.ToString());
+                    if (dStep == 0)
+                    {
+                        MessageBox.Show("Step must be > 0!");
+                        return;
+                    }
+                    /****************** Вдруг там дохрена вычислений надо... ***************/
+                    xnum = (Int64)Double.Parse(((dXmax - dXmin) / dStep).ToString());
+                    if (xnum > 7000)
+                        if (MessageBox.Show("Обработка столь большого числа данных займет некоторое время. Нажмите ОК для продолжения или уменьшите шаг либо пределы вычислений.", "Continue Counting?", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                            return;
+                    /****************** Вычисление и сопряженные с ним трудности... ***************/
+                    mainProgress.Minimum = 0;
+                    mainProgress.Maximum = 2 * (int)xnum;
+                    currentProgPos = 0;
+                    computeTh = new Thread(delegate()
+                    {
+                        this.CountAndDraw();
+                    });
+                    break;
+
                 default:
                     MessageBox.Show("Def");
                     this.computeTh = new Thread(delegate()
@@ -244,9 +279,42 @@ namespace CMSP_course
             this.endCounting = true;
         }
 
+        /********************************************************************************\
+         *                   COUNT Analitic (Аналитический метод)                       *
+        \********************************************************************************/
+        private void CountAndDraw()
+        {
+            if (this.endCounting)
+                return;
+            dXvals = new double[xnum];
+            double d = dXmin;
+            for (long l = 0; l < xnum; d += dStep, l++)
+            {
+                if (this.endCounting)
+                    return;
+                dXvals[l] = d;
+                currentProgPos++;
+            }
+            dYvals = fillYArray(dXvals);
+            for (long i = 0; i < xnum; i++)
+            {
+                if (this.endCounting)
+                    return;
+                currentProgPos++;
+            }
+            this.endCounting = true;
+        }
+
+        private double[] fillYArray(double[] x)
+        {
+            long len = x.Length;
+            double[] y = new double[len];
+            for (long l = 0; l < len; l++)
+                y[l] = this.hsPlotRasp(x[l]);
+            return y;
+        }
+
         /********************************************************************************/
-
-
 
         private void button3_Click(object sender, EventArgs e)  //Save current to file
         {
@@ -393,6 +461,11 @@ namespace CMSP_course
             this.resForm.borders[1] = (int)this.leftBorder - 1;
             this.resForm.borders[2] = (int)this.rightBorder + 1;
             this.resForm.NeumanDrawMethod();
+        }
+
+        private void sendAnaliticDataToResDlg()
+        {
+            this.resForm.AnaliticDrawMethod(this.dXvals, dYvals);
         }
 
         private void showBtn_CheckedChanged(object sender, EventArgs e)

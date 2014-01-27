@@ -27,18 +27,28 @@ namespace CMSP_course
             this.dockControls();
             colNum = 1;
             rands = null;
-            this.resChart.Series[0].Name = "Hiperbolic Secant Distribution (c)";
+            this.resChart.Series.Clear();
             curSeries = new System.Windows.Forms.DataVisualization.Charting.Series();
+            curSeries.MarkerSize = 100;
             openedForm=true;
             points=new List<PointF>();
         }
 
         private void dockControls()
         {
-            this.resList.Width = this.Width / 3;
-            this.resChart.Width = 2 * this.Width / 3-10;
-            this.resList.Height = this.Height-2;
-            this.resChart.Height = this.Height - 2;
+            this.resChart.Left = this.Width / 3 + 2;
+            this.resChart.Width = this.Width * 2 / 3;
+            this.resList.Left = 0;
+            this.resList.Width = this.Width / 3 - 2;
+            this.resList.Top = 0;
+            this.resList.Height = this.Height - 70;
+            this.resChart.Top = 0;
+            if (this.resChart.Left <= this.clearGraph.Right)
+                this.resChart.Height = this.Height - 70;
+            else
+                this.resChart.Height = this.Height;
+            this.clearGraph.Top = this.resList.Bottom + 14;
+            this.clearList.Top = this.resList.Bottom + 14;
         }
 
         public void saveGraphToBmp(string FileName)
@@ -78,12 +88,24 @@ namespace CMSP_course
             for (int i = 0; i < points.Count; i++)
                 curSeries.Points.AddXY(points[i].X,points[i].Y);
 
-            //chAr.AxisY.Maximum = this.borders[0];
-            //chAr.AxisX.Minimum = this.borders[1];
-            //chAr.AxisX.Maximum = this.borders[2];
-            //resChart.ChartAreas.Add(chAr);
             resChart.Series.Add(curSeries);
         }
+
+        public void AnaliticDrawMethod(double []x,double[]y){
+            String name = "Аналитический Метод";
+            if (this.clearGraph.Checked == true)
+                this.resChart.Series.Clear();
+            if (this.clearList.Checked == true)
+                this.resList.Items.Clear();
+            for (Random r = new Random(); (this.resChart.Series.IndexOf(name) >= 0); )
+                name += r.Next(9).ToString();
+            curSeries = new System.Windows.Forms.DataVisualization.Charting.Series(name);
+            curSeries.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            for (int i = 0; i < x.Length; i++)
+                curSeries.Points.AddXY(x[i], y[i]);
+            resChart.Series.Add(curSeries);
+        }
+
 
         private void drawGraph(string name)                     //Рисование графика методом обратных функций
         {
@@ -121,12 +143,12 @@ namespace CMSP_course
 
         private void ResultForm_ResizeEnd(object sender, EventArgs e)
         {
-            //this.dockControls();
+            this.dockControls();
         }
 
         private void ResultForm_Resize(object sender, EventArgs e)
         {
-            //this.dockControls();
+            this.dockControls();
         }
 
         public void ResultForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -138,9 +160,9 @@ namespace CMSP_course
 
         private void ResultForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MessageBox.Show("Для закрытия окна результата воспользуйтесь кнопкой \"Результаты\" на главном окне.", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             base.OnClosing(e);
             e.Cancel = true;
+            this.Hide();
         }
     }
 }

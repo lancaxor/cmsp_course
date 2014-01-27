@@ -54,6 +54,13 @@
             this.upBorgerUpDown = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.DefaultBtn = new System.Windows.Forms.Button();
+            this.xmaxUpDown = new System.Windows.Forms.NumericUpDown();
+            this.stepUpDown = new System.Windows.Forms.NumericUpDown();
+            this.xminUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label9 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -67,13 +74,6 @@
             this.saveBtn = new System.Windows.Forms.Button();
             this.loadBtn = new System.Windows.Forms.Button();
             this.showBtn = new System.Windows.Forms.CheckBox();
-            this.DefaultBtn = new System.Windows.Forms.Button();
-            this.xmaxUpDown = new System.Windows.Forms.NumericUpDown();
-            this.stepUpDown = new System.Windows.Forms.NumericUpDown();
-            this.xminUpDown = new System.Windows.Forms.NumericUpDown();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MuUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SigmaUpDown)).BeginInit();
             this.MainTabControl.SuspendLayout();
@@ -86,11 +86,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.leftBorderUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.upBorgerUpDown)).BeginInit();
             this.tabPage4.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xmaxUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stepUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xminUpDown)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // MuUpDown
@@ -168,7 +168,7 @@
             this.alnaliticBtn.Name = "alnaliticBtn";
             this.alnaliticBtn.Size = new System.Drawing.Size(105, 23);
             this.alnaliticBtn.TabIndex = 2;
-            this.alnaliticBtn.Text = "Аналитич.";
+            this.alnaliticBtn.Text = "Справка";
             this.alnaliticBtn.UseVisualStyleBackColor = true;
             this.alnaliticBtn.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -416,6 +416,112 @@
             this.tabPage4.Text = "Аналитический";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(43, 56);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(118, 17);
+            this.label11.TabIndex = 16;
+            this.label11.Text = "Правая граница:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(43, 28);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(110, 17);
+            this.label16.TabIndex = 15;
+            this.label16.Text = "Левая граница:";
+            // 
+            // DefaultBtn
+            // 
+            this.DefaultBtn.Location = new System.Drawing.Point(289, 123);
+            this.DefaultBtn.Name = "DefaultBtn";
+            this.DefaultBtn.Size = new System.Drawing.Size(75, 23);
+            this.DefaultBtn.TabIndex = 14;
+            this.DefaultBtn.Text = "Default";
+            this.DefaultBtn.UseVisualStyleBackColor = true;
+            this.DefaultBtn.Click += new System.EventHandler(this.DefaultBtn_Click);
+            // 
+            // xmaxUpDown
+            // 
+            this.xmaxUpDown.DecimalPlaces = 5;
+            this.xmaxUpDown.Location = new System.Drawing.Point(196, 54);
+            this.xmaxUpDown.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.xmaxUpDown.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.xmaxUpDown.Name = "xmaxUpDown";
+            this.xmaxUpDown.Size = new System.Drawing.Size(168, 22);
+            this.xmaxUpDown.TabIndex = 9;
+            this.xmaxUpDown.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // stepUpDown
+            // 
+            this.stepUpDown.DecimalPlaces = 5;
+            this.stepUpDown.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.stepUpDown.Location = new System.Drawing.Point(196, 82);
+            this.stepUpDown.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.stepUpDown.Name = "stepUpDown";
+            this.stepUpDown.Size = new System.Drawing.Size(168, 22);
+            this.stepUpDown.TabIndex = 10;
+            this.stepUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            // 
+            // xminUpDown
+            // 
+            this.xminUpDown.DecimalPlaces = 5;
+            this.xminUpDown.Location = new System.Drawing.Point(196, 26);
+            this.xminUpDown.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.xminUpDown.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.xminUpDown.Name = "xminUpDown";
+            this.xminUpDown.Size = new System.Drawing.Size(168, 22);
+            this.xminUpDown.TabIndex = 8;
+            this.xminUpDown.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(43, 84);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(36, 17);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "Шаг:";
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.pictureBox1);
@@ -549,97 +655,6 @@
             this.showBtn.UseVisualStyleBackColor = true;
             this.showBtn.CheckedChanged += new System.EventHandler(this.showBtn_CheckedChanged);
             // 
-            // DefaultBtn
-            // 
-            this.DefaultBtn.Location = new System.Drawing.Point(289, 123);
-            this.DefaultBtn.Name = "DefaultBtn";
-            this.DefaultBtn.Size = new System.Drawing.Size(75, 23);
-            this.DefaultBtn.TabIndex = 14;
-            this.DefaultBtn.Text = "Default";
-            this.DefaultBtn.UseVisualStyleBackColor = true;
-            this.DefaultBtn.Click += new System.EventHandler(this.DefaultBtn_Click);
-            // 
-            // xmaxUpDown
-            // 
-            this.xmaxUpDown.DecimalPlaces = 5;
-            this.xmaxUpDown.Location = new System.Drawing.Point(196, 54);
-            this.xmaxUpDown.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.xmaxUpDown.Minimum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            -2147483648});
-            this.xmaxUpDown.Name = "xmaxUpDown";
-            this.xmaxUpDown.Size = new System.Drawing.Size(168, 22);
-            this.xmaxUpDown.TabIndex = 9;
-            // 
-            // stepUpDown
-            // 
-            this.stepUpDown.DecimalPlaces = 5;
-            this.stepUpDown.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.stepUpDown.Location = new System.Drawing.Point(196, 82);
-            this.stepUpDown.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.stepUpDown.Name = "stepUpDown";
-            this.stepUpDown.Size = new System.Drawing.Size(168, 22);
-            this.stepUpDown.TabIndex = 10;
-            // 
-            // xminUpDown
-            // 
-            this.xminUpDown.DecimalPlaces = 5;
-            this.xminUpDown.Location = new System.Drawing.Point(196, 26);
-            this.xminUpDown.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.xminUpDown.Minimum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            -2147483648});
-            this.xminUpDown.Name = "xminUpDown";
-            this.xminUpDown.Size = new System.Drawing.Size(168, 22);
-            this.xminUpDown.TabIndex = 8;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(43, 84);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(36, 17);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "Шаг:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(43, 56);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(118, 17);
-            this.label11.TabIndex = 16;
-            this.label11.Text = "Правая граница:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(43, 28);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(110, 17);
-            this.label16.TabIndex = 15;
-            this.label16.Text = "Левая граница:";
-            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -671,12 +686,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.upBorgerUpDown)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xmaxUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stepUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xminUpDown)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
