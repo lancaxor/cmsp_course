@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.resChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.resList = new System.Windows.Forms.ListBox();
             this.clearList = new System.Windows.Forms.CheckBox();
@@ -41,16 +41,16 @@
             // resChart
             // 
             this.resChart.BorderlineColor = System.Drawing.Color.PaleGreen;
-            chartArea1.Name = "ChartArea1";
-            this.resChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.resChart.Legends.Add(legend1);
+            chartArea9.Name = "ChartArea1";
+            this.resChart.ChartAreas.Add(chartArea9);
+            legend9.Name = "Legend1";
+            this.resChart.Legends.Add(legend9);
             this.resChart.Location = new System.Drawing.Point(209, 0);
             this.resChart.Name = "resChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.resChart.Series.Add(series1);
+            series9.ChartArea = "ChartArea1";
+            series9.Legend = "Legend1";
+            series9.Name = "Series1";
+            this.resChart.Series.Add(series9);
             this.resChart.Size = new System.Drawing.Size(565, 468);
             this.resChart.TabIndex = 0;
             this.resChart.Text = "chart1";
@@ -95,11 +95,15 @@
             this.Controls.Add(this.clearList);
             this.Controls.Add(this.resList);
             this.Controls.Add(this.resChart);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "ResultForm";
+            this.ShowInTaskbar = false;
             this.Text = "ResultForm";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ResultForm_FormClosed);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ResultForm_FormClosing);
             this.Resize += new System.EventHandler(this.ResultForm_Resize);
-            this.ResizeEnd += new System.EventHandler(this.ResultForm_ResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this.resChart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

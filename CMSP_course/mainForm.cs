@@ -18,7 +18,8 @@ namespace CMSP_course
         double sig, mu;
         Thread computeTh;
         System.Windows.Forms.Timer timer;
-        int _iters = 1, intervals=1;
+        long _iters = 1;
+        int intervals=1;
         bool runCount=false;
         Random r;
         ResultForm resForm;
@@ -161,13 +162,14 @@ namespace CMSP_course
                 this.startBtn.Text = "Start";
                 this.mainStatus.Text = "Stopped";
                 runCount = false;
+                this.endCounting = true;
                 return;
             }
             methodChar = curTab;
             switch (curTab)
             {
                 case 0:
-                    this.mainProgress.Maximum = this._iters;
+                    this.mainProgress.Maximum = (int)this._iters;
                     methName = "Метод Обратных Функций";
                     this.computeTh = new Thread(delegate()
                     {
@@ -179,7 +181,7 @@ namespace CMSP_course
                     this.methName = "Метод Неймана";
                     this.points.Clear();
                     this._iters = Int32.Parse(iterationsNeu.Value.ToString());
-                    this.mainProgress.Maximum = this._iters;
+                    this.mainProgress.Maximum = (int)this._iters;
                     if (this.leftBorder > this.rightBorder)
                     {
                         MessageBox.Show("Левая граница должна быть меньше правой!");
@@ -197,6 +199,10 @@ namespace CMSP_course
                     break;
                 default:
                     MessageBox.Show("Def");
+                    this.computeTh = new Thread(delegate()
+                    {
+                        int axax_He_geJIau_eTo = 100500;
+                    });
                     break;
             }
             
@@ -225,6 +231,8 @@ namespace CMSP_course
         {
             for (int i = 0; i < _iters; i++)
             {
+                if (this.endCounting)
+                    return;
                 currentProgPos = i;
                 double xExp = 0.0, yExp = 0.0;
                 xExp = (this.rightBorder - this.leftBorder) * r.NextDouble() + this.leftBorder;
@@ -232,8 +240,6 @@ namespace CMSP_course
                 if (yExp <= this.hsPlotRasp(xExp))
                     points.Add(new PointF((float)xExp, (float)yExp));
                 else continue;
-                if (this.endCounting)
-                    return;
             }
             this.endCounting = true;
         }
@@ -392,11 +398,12 @@ namespace CMSP_course
         private void showBtn_CheckedChanged(object sender, EventArgs e)
         {
             if (this.showBtn.Checked)
+            {
                 this.resForm.Show();
+            }
             else
             {
-                this.resForm.Close();
-                this.resForm = new ResultForm();
+                this.resForm.Hide();
             }
         }
 
@@ -422,6 +429,13 @@ namespace CMSP_course
                 showBtn.Enabled = true;
                 alnaliticBtn.Enabled = true;
             }
+        }
+
+        private void DefaultBtn_Click(object sender, EventArgs e)
+        {
+            this.xminUpDown.Value = -10;
+            this.xmaxUpDown.Value = 10;
+            this.stepUpDown.Value = new Decimal(0.1);
         }
     }
 }

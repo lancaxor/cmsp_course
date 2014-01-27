@@ -53,6 +53,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.upBorgerUpDown = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -66,6 +67,13 @@
             this.saveBtn = new System.Windows.Forms.Button();
             this.loadBtn = new System.Windows.Forms.Button();
             this.showBtn = new System.Windows.Forms.CheckBox();
+            this.DefaultBtn = new System.Windows.Forms.Button();
+            this.xmaxUpDown = new System.Windows.Forms.NumericUpDown();
+            this.stepUpDown = new System.Windows.Forms.NumericUpDown();
+            this.xminUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MuUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SigmaUpDown)).BeginInit();
             this.MainTabControl.SuspendLayout();
@@ -77,8 +85,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.rightBorderUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftBorderUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.upBorgerUpDown)).BeginInit();
+            this.tabPage4.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xmaxUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stepUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xminUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // MuUpDown
@@ -173,7 +185,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(36, 78);
+            this.label3.Location = new System.Drawing.Point(34, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(157, 17);
             this.label3.TabIndex = 7;
@@ -200,6 +212,7 @@
             // 
             this.MainTabControl.Controls.Add(this.tabPage1);
             this.MainTabControl.Controls.Add(this.tabPage2);
+            this.MainTabControl.Controls.Add(this.tabPage4);
             this.MainTabControl.Controls.Add(this.tabPage3);
             this.MainTabControl.Location = new System.Drawing.Point(12, 12);
             this.MainTabControl.Name = "MainTabControl";
@@ -228,7 +241,7 @@
             // 
             // intervalUpDown
             // 
-            this.intervalUpDown.Location = new System.Drawing.Point(224, 106);
+            this.intervalUpDown.Location = new System.Drawing.Point(224, 103);
             this.intervalUpDown.Maximum = new decimal(new int[] {
             276447232,
             23283,
@@ -241,7 +254,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(36, 108);
+            this.label4.Location = new System.Drawing.Point(36, 105);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(171, 17);
             this.label4.TabIndex = 9;
@@ -249,7 +262,7 @@
             // 
             // itersUpDown
             // 
-            this.itersUpDown.Location = new System.Drawing.Point(224, 78);
+            this.itersUpDown.Location = new System.Drawing.Point(224, 75);
             this.itersUpDown.Maximum = new decimal(new int[] {
             -727379968,
             232,
@@ -386,6 +399,23 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Верхняя граница:";
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.label11);
+            this.tabPage4.Controls.Add(this.label16);
+            this.tabPage4.Controls.Add(this.DefaultBtn);
+            this.tabPage4.Controls.Add(this.xmaxUpDown);
+            this.tabPage4.Controls.Add(this.stepUpDown);
+            this.tabPage4.Controls.Add(this.xminUpDown);
+            this.tabPage4.Controls.Add(this.label9);
+            this.tabPage4.Location = new System.Drawing.Point(4, 25);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(436, 162);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Аналитический";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.pictureBox1);
@@ -519,6 +549,97 @@
             this.showBtn.UseVisualStyleBackColor = true;
             this.showBtn.CheckedChanged += new System.EventHandler(this.showBtn_CheckedChanged);
             // 
+            // DefaultBtn
+            // 
+            this.DefaultBtn.Location = new System.Drawing.Point(289, 123);
+            this.DefaultBtn.Name = "DefaultBtn";
+            this.DefaultBtn.Size = new System.Drawing.Size(75, 23);
+            this.DefaultBtn.TabIndex = 14;
+            this.DefaultBtn.Text = "Default";
+            this.DefaultBtn.UseVisualStyleBackColor = true;
+            this.DefaultBtn.Click += new System.EventHandler(this.DefaultBtn_Click);
+            // 
+            // xmaxUpDown
+            // 
+            this.xmaxUpDown.DecimalPlaces = 5;
+            this.xmaxUpDown.Location = new System.Drawing.Point(196, 54);
+            this.xmaxUpDown.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.xmaxUpDown.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.xmaxUpDown.Name = "xmaxUpDown";
+            this.xmaxUpDown.Size = new System.Drawing.Size(168, 22);
+            this.xmaxUpDown.TabIndex = 9;
+            // 
+            // stepUpDown
+            // 
+            this.stepUpDown.DecimalPlaces = 5;
+            this.stepUpDown.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.stepUpDown.Location = new System.Drawing.Point(196, 82);
+            this.stepUpDown.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.stepUpDown.Name = "stepUpDown";
+            this.stepUpDown.Size = new System.Drawing.Size(168, 22);
+            this.stepUpDown.TabIndex = 10;
+            // 
+            // xminUpDown
+            // 
+            this.xminUpDown.DecimalPlaces = 5;
+            this.xminUpDown.Location = new System.Drawing.Point(196, 26);
+            this.xminUpDown.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.xminUpDown.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.xminUpDown.Name = "xminUpDown";
+            this.xminUpDown.Size = new System.Drawing.Size(168, 22);
+            this.xminUpDown.TabIndex = 8;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(43, 84);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(36, 17);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "Шаг:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(43, 56);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(118, 17);
+            this.label11.TabIndex = 16;
+            this.label11.Text = "Правая граница:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(43, 28);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(110, 17);
+            this.label16.TabIndex = 15;
+            this.label16.Text = "Левая граница:";
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -548,9 +669,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.rightBorderUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.leftBorderUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.upBorgerUpDown)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xmaxUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stepUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xminUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -595,6 +721,14 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label authLbl;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button DefaultBtn;
+        private System.Windows.Forms.NumericUpDown xmaxUpDown;
+        private System.Windows.Forms.NumericUpDown stepUpDown;
+        private System.Windows.Forms.NumericUpDown xminUpDown;
+        private System.Windows.Forms.Label label9;
     }
 }
 

@@ -66,14 +66,11 @@ namespace CMSP_course
                 this.resList.Items.Add(points[i].X.ToString());
 
             if (this.clearGraph.Checked == true)
-            {
                 this.resChart.Series.Clear();
-                this.resChart.ChartAreas.Clear();
-            }
 
             //System.Windows.Forms.DataVisualization.Charting.ChartArea chAr = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             String name = "Метод Неймана";
-            for (Random r = new Random(); (this.resChart.Series.IndexOf(name) > 0); )
+            for (Random r = new Random(); (this.resChart.Series.IndexOf(name) >= 0); )
                 name += r.Next(9).ToString();
             curSeries = new System.Windows.Forms.DataVisualization.Charting.Series(name);
             curSeries.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
@@ -88,23 +85,21 @@ namespace CMSP_course
             resChart.Series.Add(curSeries);
         }
 
-        private void drawGraph(string name)
+        private void drawGraph(string name)                     //Рисование графика методом обратных функций
         {
             if (this.clearGraph.Checked == true)
-            {
                 this.resChart.Series.Clear();
-                //this.resChart.ChartAreas.Clear();
-            }
-           // System.Windows.Forms.DataVisualization.Charting.ChartArea chAr = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            for(Random r=new Random();(this.resChart.Series.IndexOf(name)>0);)
+
+            for(Random r=new Random();(this.resChart.Series.IndexOf(name)>=0);)
                 name += r.Next(9).ToString();
+
             curSeries = new System.Windows.Forms.DataVisualization.Charting.Series(name);
             this.graphRands = new double[this.colNum];
             curSeries.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
 
             double minR=rands.Min();
             double oneLen = (rands.Max() - minR) / (colNum-1);
-
+            //9405 9428 9435 9435 9438 9420  9438 9441 9435 9427
             if (oneLen == 0)
             {
                 curSeries.Points.AddXY(rands.Min(), rands.Length);
@@ -121,8 +116,6 @@ namespace CMSP_course
             {
                 curSeries.Points.AddXY((minR+i*oneLen),(graphRands[i]/graphRands.Max()));
             }
-            //resChart.ChartAreas[0].CursorX.AutoScroll = true;
-            //resChart.ChartAreas.Add(chAr);
             resChart.Series.Add(curSeries);
         }
 
@@ -133,12 +126,21 @@ namespace CMSP_course
 
         private void ResultForm_Resize(object sender, EventArgs e)
         {
-            this.dockControls();
+            //this.dockControls();
         }
 
         public void ResultForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             openedForm=false;
+            ResultForm res = this;
+            res =  new ResultForm();
+        }
+
+        private void ResultForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MessageBox.Show("Для закрытия окна результата воспользуйтесь кнопкой \"Результаты\" на главном окне.", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            base.OnClosing(e);
+            e.Cancel = true;
         }
     }
 }

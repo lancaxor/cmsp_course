@@ -57,14 +57,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CMSP_course.exe" size="39936">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CMSP_course.exe" size="41984">
       <assemblyIdentity name="CMSP_course" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>kvKdGZbURPCr8O/rM2R+3FtRk9g=</dsig:DigestValue>
+        <dsig:DigestValue>d9NtloankWPVlH5RZAOFXKBfWEo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
